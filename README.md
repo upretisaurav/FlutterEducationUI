@@ -12,18 +12,20 @@ Below are screenshots of the implemented UI in this practice project:
 
 ### Login Screen
 
-![Login Screen]<img src="screenshots/login_screen.png" width="400">
+<img src="screenshots/login_screen.png" width="300">
 
 ### Onboarding Screen
 
-![Onboarding Screen](screenshots/first_pic.png)
+<img src="screenshots/first_pic.png" width="300">
 
 ### Carousel Widget
 
-![Carousel Widget](screenshots/last_pic.png)
+<img src="screenshots/last_pic.png" width="300">
 
 ### Selected TextField Widget
-![Textfield Widget](screenshots/selected_textfield.png)
+
+<img src="screenshots/selected_textfield.png" width="300">
+
 
 ## Notes
 
