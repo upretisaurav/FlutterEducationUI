@@ -3,6 +3,7 @@ import 'package:learning_platform/features/login/screens/login_screen.dart';
 import 'package:learning_platform/features/onboarding/components/custom_carousel.dart';
 
 import '../components/custom_third_party_login_button.dart';
+import '../components/primary_button.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
@@ -51,41 +52,17 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   ),
                 ),
               ),
-              Padding(
-                padding: EdgeInsets.only(
-                  top: 0.04 * screenHeight,
-                  left: 20,
-                  right: 20,
-                ), // add some side padding
-                child: SizedBox(
-                  width: double.infinity,
-                  height: 50,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const LoginScreen(),
-                        ),
-                      );
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Theme.of(context)
-                          .colorScheme
-                          .secondary, // background color
-                      shape: RoundedRectangleBorder(
-                        borderRadius:
-                            BorderRadius.circular(25), // rounded edges
-                      ),
+              PrimaryButton(
+                screenHeight: screenHeight,
+                buttonLabel: "Login with Email",
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const LoginScreen(),
                     ),
-                    child: Text(
-                      "Login with Email",
-                      style: TextStyle(
-                        color: Theme.of(context).colorScheme.onTertiary,
-                      ),
-                    ),
-                  ),
-                ),
+                  );
+                },
               ),
               Padding(
                 padding: const EdgeInsets.all(20.0),

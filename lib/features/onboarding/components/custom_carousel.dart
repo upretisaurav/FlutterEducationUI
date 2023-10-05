@@ -2,10 +2,9 @@ import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 
 class CustomCarousel extends StatefulWidget {
-  const CustomCarousel({super.key});
+  const CustomCarousel({Key? key}) : super(key: key);
 
   @override
-  // ignore: library_private_types_in_public_api
   _CustomCarouselState createState() => _CustomCarouselState();
 }
 
@@ -33,61 +32,66 @@ class _CustomCarouselState extends State<CustomCarousel> {
 
   @override
   void dispose() {
-    super.dispose();
     _pageController?.dispose();
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Text(
-          texts[_currentIndex],
-          style: TextStyle(
-            color: Theme.of(context).colorScheme.primary.withOpacity(0.7),
-          ),
-        ), // Text at the top
-        SizedBox(
-          height: 300,
-          width: 350,
-          child: PageView.builder(
-            controller: _pageController,
-            itemCount: images.length,
-            itemBuilder: (context, index) {
-              return Image.asset(
-                images[index],
-                fit: BoxFit.cover,
-              );
-            },
-            onPageChanged: (index) {
-              _pageController?.animateToPage(
-                index,
-                duration: const Duration(milliseconds: 300),
-                curve: Curves.easeIn,
-              );
-
-              setState(() {
-                _currentIndex = index;
-              });
-            },
+        Expanded(
+          flex: 2,
+          child: Text(
+            texts[_currentIndex],
+            style: TextStyle(
+              color: Theme.of(context).colorScheme.primary.withOpacity(0.7),
+            ),
+            textAlign: TextAlign.center,
+            maxLines: 2,
+            overflow: TextOverflow.ellipsis,
           ),
         ),
-        Center(
-          child: DotsIndicator(
-            dotsCount: images.length,
-            position: _currentIndex,
-            decorator: const DotsDecorator(
-              size: Size(9.0, 5.0),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.horizontal(),
-              ),
-              activeSize: Size(18.0, 5.0),
-              activeShape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.horizontal(),
+        Expanded(
+          flex: 5,
+          child: SizedBox(
+            width: 350,
+            child: PageView.builder(
+              controller: _pageController,
+              itemCount: images.length,
+              itemBuilder: (context, index) {
+                return Image.asset(
+                  images[index],
+                  fit: BoxFit.contain,
+                );
+              },
+              onPageChanged: (index) {
+                setState(() {
+                  _currentIndex = index;
+                });
+              },
+            ),
+          ),
+        ),
+        Expanded(
+          flex: 1,
+          child: Center(
+            child: DotsIndicator(
+              dotsCount: images.length,
+              position: _currentIndex.toInt(),
+              decorator: const DotsDecorator(
+                size: Size(9.0, 5.0),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.horizontal(),
+                ),
+                activeSize: Size(18.0, 5.0),
+                activeShape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.horizontal(),
+                ),
               ),
             ),
           ),
-        )
+        ),
       ],
     );
   }
