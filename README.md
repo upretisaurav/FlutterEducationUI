@@ -12,7 +12,7 @@ Below are screenshots of the implemented UI in this practice project:
 
 ### Login Screen
 
-![Login Screen](screenshots/login_screen.png)
+![Login Screen]<img src="screenshots/login_screen.png" width="400">
 
 ### Onboarding Screen
 
