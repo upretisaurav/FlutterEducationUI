@@ -9,7 +9,6 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  final _formKey = GlobalKey<FormState>();
   String? email = "";
   String? password = "";
 
@@ -26,68 +25,58 @@ class _LoginScreenState extends State<LoginScreen> {
           },
         ),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Padding(
-              padding: EdgeInsets.only(top: screenHeight * 0.001),
-              child: Image.asset(
-                "assets/images/studying3.png",
-                height: screenHeight * 0.15,
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.only(top: screenHeight * 0.02),
-              child: Text(
-                "Log In",
-                style: TextStyle(
-                  color: Theme.of(context).colorScheme.primary,
-                  fontSize: 25,
-                  fontWeight: FontWeight.w600,
+      body: SingleChildScrollView(
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Padding(
+                padding: EdgeInsets.only(top: screenHeight * 0.001),
+                child: Image.asset(
+                  "assets/images/studying3.png",
+                  height: screenHeight * 0.15,
                 ),
               ),
-            ),
-            Padding(
-              padding: EdgeInsets.only(
-                top: screenHeight * 0.02,
-                left: screenHeight * 0.05,
-                right: screenHeight * 0.05,
-              ),
-              child: Text(
-                "Welcome Back! Login and continue the learning journey",
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: Theme.of(context).colorScheme.primary.withOpacity(0.7),
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.only(
-                top: 0.04 * screenHeight,
-                left: 25,
-                right: 25,
-              ), // add some side padding
-              child: TextField(
-                decoration: InputDecoration(
-                  labelText: "Username",
-                  hintText: "Username",
-                  floatingLabelBehavior: FloatingLabelBehavior.auto,
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
-                        color: Theme.of(context).colorScheme.onSurfaceVariant),
+              Padding(
+                padding: EdgeInsets.only(top: screenHeight * 0.02),
+                child: Text(
+                  "Log In",
+                  style: TextStyle(
+                    color: Theme.of(context).colorScheme.primary,
+                    fontSize: 25,
+                    fontWeight: FontWeight.w600,
                   ),
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
-                        color: Theme.of(context).colorScheme.primary),
-                  ),
-                  fillColor: Theme.of(context).colorScheme.surface,
-                  filled: true,
                 ),
               ),
-            ),
-          ],
+              Padding(
+                padding: EdgeInsets.only(
+                  top: screenHeight * 0.02,
+                  left: screenHeight * 0.05,
+                  right: screenHeight * 0.05,
+                ),
+                child: Text(
+                  "Welcome Back! Login and continue the learning journey",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color:
+                        Theme.of(context).colorScheme.primary.withOpacity(0.7),
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+              ),
+              TextFieldLogin(
+                screenHeight: screenHeight,
+                labelText: "Username",
+                hintText: "Username",
+              ),
+              TextFieldLogin(
+                screenHeight: screenHeight,
+                labelText: "Password",
+                hintText: "Password",
+                isPassword: true,
+              ),
+            ],
+          ),
         ),
       ),
     );
