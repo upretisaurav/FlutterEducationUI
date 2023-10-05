@@ -61,4 +61,4 @@ dependencies:
 ## Acknowledgements
 
 - Design inspiration from [Dribbble](https://dribbble.com/shots/7728855-Youth-Education-Launch-Login-Page).
-# learningPlatform
+
